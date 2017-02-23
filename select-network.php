@@ -16,13 +16,11 @@ $cmd = $conn->prepare($sql);
 $cmd->execute();
 $teams = $cmd->fetchALL(); 
 
-
 echo '<dropdown class=dropdown">';
 
 foreach ($networks as $network) {
     echo '<tr><td>' . $network['network_name'] . '</td></tr>';
 }
-
 
 $conn = null;
 ?>
