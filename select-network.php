@@ -22,5 +22,12 @@ echo '<dropdown class=dropdown">';
 $conn = null;
 ?>
 
+<form action="shows.php" method="post">
+    <fieldset>
+        <label for="networks">Networks:</label>
+    </fieldset>
+    <button>Get Shows</button>
+</form>
+
 </body>
 </html>
