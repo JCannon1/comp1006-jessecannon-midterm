@@ -6,16 +6,21 @@
 </head>
 <body>
 
-<form action="shows.php" method="post">
-    <fieldset>
-        <label for="networks">Networks:</label>
-        <dropdown name="AMC" id="AMC" />
-        <dropdown name="FX" id="FX" />
-        <dropdown name="HBO" id="HBO" />
-        <dropdown name="Showtime" id="Showtime" />
-    </fieldset>
-    <button>Get Shows</button>
-</form>
+<?php
+
+$conn = new PDO('mysql:host=ca-cdbr-azure-central-a.cloudapp.net;dbname=comp1006jessecannondatabase', 'bf3c946f4d66ff', '1d953141');
+
+$sql ="SELECT network_id, network_name FROM networks";
+
+$cmd = $conn->prepare($sql);
+$cmd->execute();
+$teams = $cmd->fetchALL(); 
+
+echo '<dropdown class=dropdown">';
+
+
+$conn = null;
+?>
 
 </body>
 </html>
