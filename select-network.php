@@ -13,8 +13,12 @@ $conn = new PDO('mysql:host=ca-cdbr-azure-central-a.cloudapp.net;dbname=comp1006
 $sql ="SELECT network_id, network_name FROM networks";
 
 $cmd = $conn->prepare($sql);
+$cmd->bindParam(':network_id', $networkId, PDO::PARAM_INT);
 $cmd->execute();
 $teams = $cmd->fetchALL(); 
+
+$networkId = $networks['networks'];
+
 
 echo '<dropdown class=dropdown">';
 
