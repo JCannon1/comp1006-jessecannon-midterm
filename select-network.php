@@ -10,17 +10,18 @@
 
 $conn = new PDO('mysql:host=ca-cdbr-azure-central-a.cloudapp.net;dbname=comp1006jessecannondatabase', 'bf3c946f4d66ff', '1d953141');
 
-$sql ="SELECT network_id, network_name FROM networks";
+$sql ="SELECT network_name FROM networks";
 
 $cmd = $conn->prepare($sql);
-$cmd->bindParam(':network_id', $networkId, PDO::PARAM_INT);
 $cmd->execute();
 $teams = $cmd->fetchALL(); 
 
-$networkId = $networks['networks'];
-
 
 echo '<dropdown class=dropdown">';
+
+foreach ($networks as $network) {
+    echo '<tr><td>' . $network['network_name'] . '</td></tr>';
+}
 
 
 $conn = null;
